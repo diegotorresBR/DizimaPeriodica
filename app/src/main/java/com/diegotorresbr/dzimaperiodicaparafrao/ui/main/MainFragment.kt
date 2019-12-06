@@ -11,8 +11,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import com.diegotorresbr.dzimaperiodicaparafrao.R
+import com.google.android.gms.ads.AdListener
 import kotlinx.android.synthetic.main.fragmento.*
 import kotlin.math.pow
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+
 
 class MainFragment : Fragment() {
 
@@ -33,6 +38,23 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
+        MobileAds.initialize(getActivity()){}
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        adView.adListener = object : AdListener(){
+            override fun onAdLoaded() {
+                Log.i("ADS", "Carregou")
+                super.onAdLoaded()
+
+            }
+
+            override fun onAdFailedToLoad(p0: Int) {
+                Log.e("ADS", "Falhou"+p0.toString())
+                super.onAdFailedToLoad(p0)
+            }
+        }
+
         var parte_inteira= p_inteira.text
         var parte_nao_repete = p_n_repete.text
         var dizima = p_repete.text
@@ -60,7 +82,6 @@ class MainFragment : Fragment() {
 
                 var fracao  = Rational(numerador.toInt(), denomindadoro*parte_fracao)
 
-
                 texto_numerador.text = fracao.numerator.toString()
                 texto_denominador.text = fracao.denominator.toString()
 
@@ -74,14 +95,7 @@ class MainFragment : Fragment() {
                 texto_numerador.text = fracao.numerator.toString()
                 texto_denominador.text = fracao.denominator.toString()
             }
-
-
-            var aaa = Rational(2,4)
-
-
-
             entrada.text = numero.toString()
-
 
         })
     }
