@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/entradas">
+            <EditText
+                android:id="@+id/p_inteira"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite a parte inteira da fração"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:id="@+id/p_n_repete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite a parte que NÃO REPETE.(Opcional)"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:id="@+id/p_repete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Digite a parte que REPETE. Não deixe em branco"
+                android:inputType="number"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CALCULAR"
+                android:layout_gravity="center"
+                android:id="@+id/botao"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXXXXX - Sua Entrada"
+                android:textSize="72px"
+                android:id="@+id/entrada"
+                />
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/texto_numerador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:textSize="45dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/divisao"
+        />
+    <View
+        android:id="@+id/divisao"
+        android:layout_width="105dp"
+        android:layout_height="5dp"
+        android:layout_above="@id/texto_denominador"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/texto_denominador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX"
+        android:textSize="45dp"
+        android:layout_centerInParent="true"
+        />
+
+
+
+</RelativeLayout>
