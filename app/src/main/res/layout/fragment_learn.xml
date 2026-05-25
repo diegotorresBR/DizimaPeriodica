@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_color">
+
+    <!-- Cabeçalho Lúdico com Botão Voltar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:elevation="4dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round_button"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Voltar ao menu"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Aprender Brincando 📚"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Card 1: Conceito Inicial -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="#DFE6E9"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="O que é Dízima Periódica? 🍕"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Imagine que você tem uma barra de chocolate 🍫 e quer dividir ela igualzinho para 3 amigos.\n\nCada um ganha a fração 1/3. Mas se você escrever isso como número com vírgula, dá:\n\n0,33333...\n\nOs números 3 nunca acabam! Esse número que se repete infinitamente sem parar é a dízima periódica! 😮"
+                        android:textColor="@color/color_dark_text"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: O Repeteco (Período) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="#DFE6E9"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quem é o Período? 🔁"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="O número ou os números que ficam se repetindo sem parar são chamados de PERÍODO.\n\n• Em 0,7777..., o período é o 7! 🎈\n• Em 0,121212..., o período é o 12! 🌈\n• Em 2,454545..., o período é o 45! 🚀"
+                        android:textColor="@color/color_dark_text"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 3: Simples vs Composta -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="#DFE6E9"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Simples ou Composta? 🤔"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Elas podem ser de dois tipos legais:\n\n🎈 DÍZIMA SIMPLES: O repeteco começa logo após a vírgula!\nExemplo: 0,6666... (período 6)\n\n🚂 DÍZIMA COMPOSTA: Tem um número 'intruso' antes do repeteco começar!\nExemplo: 0,18888... (o 1 é o intruso que não repete, e o 8 é o período!)"
+                        android:textColor="@color/color_dark_text"
+                        android:textSize="14sp"
+                        android:lineSpacingMultiplier="1.2" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botão de Ação -->
+            <Button
+                android:id="@+id/btn_go_to_quiz"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/round_button"
+                android:text="Testar Meus Conhecimentos! 🚀"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                app:backgroundTint="@null" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

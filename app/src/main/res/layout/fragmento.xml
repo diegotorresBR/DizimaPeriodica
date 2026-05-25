@@ -1,90 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-    <LinearLayout
+    android:background="@color/bg_color">
+
+    <!-- Cabeçalho Lúdico com Botão Voltar -->
+    <RelativeLayout
+        android:id="@+id/header_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/entradas">
-            <EditText
-                android:id="@+id/p_inteira"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Digite a parte inteira da fração"
-                android:inputType="number"
-                />
+        android:padding="16dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:layout_alignParentTop="true">
 
-            <EditText
-                android:id="@+id/p_n_repete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Digite a parte que NÃO REPETE.(Opcional)"
-                android:inputType="number"
-                />
+        <ImageButton
+            android:id="@+id/btn_calc_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/round_button"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Voltar"
+            android:tint="@color/white" />
 
-            <EditText
-                android:id="@+id/p_repete"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Calculadora Mágica 🧮"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_layout"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
+
+            <!-- Card de Entradas -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Digite a parte que REPETE. Não deixe em branco"
-                android:inputType="number"
-                />
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/white"
+                app:strokeColor="#DFE6E9"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Escreva sua Dízima Periódica! ✍️"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Input 1: Parte Inteira -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Parte Inteira (antes da vírgula)"
+                        android:textColor="@color/color_dark_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/p_inteira"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/input_background"
+                        android:hint="Digite o inteiro (Ex: 0 ou 1)"
+                        android:inputType="number"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Input 2: Parte Não Repete -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="O Intruso! 🚂 (não repete - opcional)"
+                        android:textColor="@color/color_dark_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/p_n_repete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/input_background"
+                        android:hint="Opcional (Ex: em 0,1222... o intruso é o 1)"
+                        android:inputType="number"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Input 3: Parte Repete -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="O Repeteco! 🔁 (período - obrigatório)"
+                        android:textColor="@color/color_dark_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/p_repete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/input_background"
+                        android:hint="Digite o que repete (Ex: em 0,333... é o 3)"
+                        android:inputType="number"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botão de Calcular -->
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CALCULAR"
-                android:layout_gravity="center"
                 android:id="@+id/botao"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/round_button"
+                android:text="Revelar Fração Mágica ✨"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"
+                app:backgroundTint="@null" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Card de Resultado -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_result"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="XXXXXX - Sua Entrada"
-                android:textSize="72px"
-                android:id="@+id/entrada"
-                />
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/color_card_calc"
+                app:strokeColor="@color/color_card_calc_border"
+                app:strokeWidth="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔮 Sua Dízima Periódica:"
+                        android:textColor="@color/color_card_calc_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/entrada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="---"
+                        android:textColor="@color/color_dark_text"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎁 Fração Geratriz Revelada!"
+                        android:textColor="@color/color_card_calc_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Layout da Fração -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:id="@+id/texto_numerador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="36sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/divisao"
+                            android:layout_width="120dp"
+                            android:layout_height="6dp"
+                            android:background="@color/colorPrimary"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/texto_denominador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="36sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
-
-    <TextView
-        android:id="@+id/texto_numerador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:textSize="45dp"
-        android:layout_centerInParent="true"
-        android:layout_above="@id/divisao"
-        />
-    <View
-        android:id="@+id/divisao"
-        android:layout_width="105dp"
-        android:layout_height="5dp"
-        android:layout_above="@id/texto_denominador"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/darker_gray" />
-
-    <TextView
-        android:id="@+id/texto_denominador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="XX"
-        android:textSize="45dp"
-        android:layout_centerInParent="true"
-        />
-
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-8024744586643320/8308880417">
-    </com.google.android.gms.ads.AdView>
-
-
+    </ScrollView>
 
 </RelativeLayout>
